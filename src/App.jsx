@@ -1,6 +1,18 @@
 import { Children, useState } from "react";
 import "./App.css";
-import { Cont, Main, Section, Square, WinnerCont } from "./components/AppStyled";
+import {
+	Cont,
+	Main,
+	Section,
+	SectionSelectedTurn,
+	Square,
+	WinnerCont,
+	WinnerFooter,
+	WinnerSimbol,
+	WinnerSquare,
+	WinnerText,
+} from "./components/AppStyled";
+import confetti from "canvas-confetti";
 
 function App() {
 	const Turns = {
@@ -35,8 +47,12 @@ function App() {
 		return null;
 	};
 
+	const checkEnd = (newBoard) => {
+		return newBoard.every((square) => square !== null);
+	};
+
 	const Square2 = ({ children, isSelected, update, index }) => {
-		const className = `${isSelected ? "is-selected" : " "} `;
+		const className = `${isSelected ? "is-selected" : ""}`;
 		const handleClick = () => {
 			update(index);
 		};
@@ -56,14 +72,21 @@ function App() {
 		setTurn(newTurn);
 		const newWinner = checkWinner(newBoard);
 		if (newWinner) {
+			confetti();
 			setWinner(newWinner);
+		} else if (checkEnd(newBoard)) {
+			setWinner(false);
 		}
+	};
+
+	const reset = () => {
+		setBoard(Array(9).fill(null)), setTurn(Turns.x), setWinner(null);
 	};
 
 	return (
 		<>
 			<Main>
-				<h1>ta te ti</h1>
+				<h1>TA TE TI</h1>
 				<Section>
 					{board.map((_, index) => {
 						return (
@@ -73,11 +96,18 @@ function App() {
 						);
 					})}
 				</Section>
-				<Section style={{ marginTop: "20px", flexDirection: "column" }}>
+				<SectionSelectedTurn>
 					<Square2 isSelected={turn === Turns.x}>{Turns.x}</Square2>
 					<Square2 isSelected={turn === Turns.o}>{Turns.o}</Square2>
-				</Section>
-				<WinnerCont>{winner ? `${winner} WON` : null} </WinnerCont>
+				</SectionSelectedTurn>
+				<WinnerFooter onClick={reset}>Reset</WinnerFooter>
+				{winner !== null && (
+					<WinnerCont>
+						<WinnerText>{winner === false ? "TIE" : `THE WINNER IS`}</WinnerText>
+						<WinnerSimbol>{winner && <WinnerSquare>{winner}</WinnerSquare>}</WinnerSimbol>
+						<WinnerFooter onClick={reset}>Reset</WinnerFooter>
+					</WinnerCont>
+				)}
 			</Main>
 		</>
 	);
