@@ -16,8 +16,8 @@ import confetti from "canvas-confetti";
 
 function App() {
 	const Turns = {
-		x: "❌",
-		o: "⭕",
+		x: "✖",
+		o: "Ｏ",
 	};
 
 	const WinnerCombos = [

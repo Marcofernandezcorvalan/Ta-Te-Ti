@@ -50,7 +50,7 @@ export const Square = styled.div`
 	font-weight: 600;
 	&.is-selected {
 		color: whitesmoke;
-		background: rgba(255, 6, 6, 0.3);
+		background: rgba(0, 255, 0, 0.2);
 	}
 `;
 
@@ -98,8 +98,9 @@ export const WinnerFooter = styled.footer`
 	margin-top: 20px;
 	padding: 5px;
 	font-weight: 700;
+	color: rgba(200, 50, 0, 1);
 	font-size: 13px;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.3);
 `;
 
 export const WinnerSquare = styled.div`
@@ -112,6 +113,6 @@ export const WinnerSquare = styled.div`
 	align-items: center;
 	font-size: 50px;
 	font-weight: 900;
-	color: white;
-	background-color: rgba(0, 0, 0, 0.3);
+	color: lightgreen;
+	background-color: rgba(0, 0, 0, 0.5);
 `;
