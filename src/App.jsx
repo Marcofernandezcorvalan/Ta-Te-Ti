@@ -16,8 +16,8 @@ import confetti from "canvas-confetti";
 
 function App() {
 	const Turns = {
-		x: "x",
-		o: "o",
+		x: "❌",
+		o: "⭕",
 	};
 
 	const WinnerCombos = [
@@ -100,12 +100,13 @@ function App() {
 					<Square2 isSelected={turn === Turns.x}>{Turns.x}</Square2>
 					<Square2 isSelected={turn === Turns.o}>{Turns.o}</Square2>
 				</SectionSelectedTurn>
-				<WinnerFooter onClick={reset}>Reset</WinnerFooter>
+				{winner == null ? <WinnerFooter onClick={reset}>RESET</WinnerFooter> : ""}
+
 				{winner !== null && (
 					<WinnerCont>
 						<WinnerText>{winner === false ? "TIE" : `THE WINNER IS`}</WinnerText>
 						<WinnerSimbol>{winner && <WinnerSquare>{winner}</WinnerSquare>}</WinnerSimbol>
-						<WinnerFooter onClick={reset}>Reset</WinnerFooter>
+						<WinnerFooter onClick={reset}>RESET</WinnerFooter>
 					</WinnerCont>
 				)}
 			</Main>

@@ -8,8 +8,15 @@ export const Main = styled.main`
 `;
 
 export const Section = styled.section`
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	/* display: grid;
+	grid-template-columns: repeat(3, 1fr); */
+	display: flex;
+	flex-wrap: wrap;
+	width: 300px;
+	height: 300px;
+	padding: 10px;
+	justify-content: center;
+	align-items: center;
 	gap: 10px;
 	color: white;
 `;
@@ -20,7 +27,7 @@ export const SectionSelectedTurn = styled.section`
 	justify-content: center;
 	gap: 10px;
 	color: white;
-	margin-top: 20px;
+	margin-top: 10px;
 `;
 
 export const Cont = styled.div`
@@ -29,18 +36,21 @@ export const Cont = styled.div`
 `;
 
 export const Square = styled.div`
-	width: 100px;
-	height: 100px;
+	width: 90px;
+	height: 90px;
 	border-radius: 5px;
 	border: 1px solid white;
-	display: grid;
-	place-items: center;
+	/* display: grid;
+	place-items: center; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	cursor: pointer;
 	font-size: 45px;
 	font-weight: 600;
 	&.is-selected {
 		color: whitesmoke;
-		background: #008f39;
+		background: rgba(255, 6, 6, 0.3);
 	}
 `;
 
@@ -52,7 +62,7 @@ export const WinnerCont = styled.section`
 	font-size: 30px;
 	font-weight: 900; */
 	position: absolute;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	top: 0;
 	left: 0;
@@ -60,20 +70,21 @@ export const WinnerCont = styled.section`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.9);
 `;
 
 export const WinnerText = styled.h2`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-size: 25px;
+	text-decoration: underline;
 `;
 
 export const WinnerSimbol = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #242424;
 `;
 
 export const WinnerFooter = styled.footer`
@@ -88,7 +99,7 @@ export const WinnerFooter = styled.footer`
 	padding: 5px;
 	font-weight: 700;
 	font-size: 13px;
-	background-color: #242424;
+	background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const WinnerSquare = styled.div`
@@ -102,4 +113,5 @@ export const WinnerSquare = styled.div`
 	font-size: 50px;
 	font-weight: 900;
 	color: white;
+	background-color: rgba(0, 0, 0, 0.3);
 `;
