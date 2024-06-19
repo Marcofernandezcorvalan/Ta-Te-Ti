@@ -16,7 +16,7 @@ import confetti from "canvas-confetti";
 
 function App() {
 	const Turns = {
-		x: "✖",
+		x: "✕",
 		o: "Ｏ",
 	};
 
