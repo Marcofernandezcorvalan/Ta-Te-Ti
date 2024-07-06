@@ -6,6 +6,7 @@ import {
 	Section,
 	SectionSelectedTurn,
 	Square,
+	Title,
 	WinnerCont,
 	WinnerFooter,
 	WinnerSimbol,
@@ -86,7 +87,7 @@ function App() {
 	return (
 		<>
 			<Main>
-				<h1>TA TE TI</h1>
+				<Title>TA TE TI</Title>
 				<Section>
 					{board.map((_, index) => {
 						return (

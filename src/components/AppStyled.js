@@ -7,6 +7,11 @@ export const Main = styled.main`
 	flex-direction: column;
 `;
 
+export const Title = styled.h1`
+	font-size: 35px;
+	font-weight: 800;
+`;
+
 export const Section = styled.section`
 	/* display: grid;
 	grid-template-columns: repeat(3, 1fr); */
